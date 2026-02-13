@@ -1,0 +1,67 @@
+.botonera {
+  position: absolute;
+  z-index: 9999;
+  width: 30%;
+  height: 10%;
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%); /* solo centra horizontal */
+  display: flex;
+  pointer-events: auto
+}
+
+.btn-caballo {
+  width: 30%;
+  height: 70%;
+  z-index: 3;
+  border: none;
+  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
+}
+
+/* === BASE VISUAL DEL BOTÓN === */
+.boton-amarillo,
+.boton-azul,
+.boton-rojo,
+.boton-blanco {
+  border-radius: 50%;
+  border: 3px solid black;
+  box-shadow:
+    inset -6px -6px 12px rgba(0,0,0,0.3),
+    inset 6px 6px 12px rgba(255,255,255,0.4),
+    0 6px 10px rgba(0,0,0,0.4);
+  transition: all 0.2s ease;
+}
+
+/* === COLORES === */
+.boton-rojo {
+  background: radial-gradient(circle at 30% 30%, #ff6b6b, #c40000);
+}
+
+.boton-azul {
+  background: radial-gradient(circle at 30% 30%, #6bbcff, #003ec4);
+}
+
+.boton-amarillo {
+  background: radial-gradient(circle at 30% 30%, #fff176, #d4a400);
+}
+
+.boton-blanco {
+  background: radial-gradient(circle at 30% 30%, #ffffff, #cfcfcf);
+}
+
+
+/* === ACTIVE (se hunde) === */
+.boton-amarillo:active,
+.boton-azul:active,
+.boton-rojo:active,
+.boton-blanco:active {
+  transform: scale(0.95);
+  box-shadow:
+    inset 4px 4px 10px rgba(0,0,0,0.5);
+}
+
+

@@ -1,0 +1,27 @@
+.caballo-amarillo , .caballo-blanco , .caballo-azul , .caballo-rojo{
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain; /* ✅ se adapta a la celda sin deformar */
+  
+    pointer-events: auto;
+}
+
+.caballo-amarillo{
+     background-image: url("./images/images-fondo/caballo-amarillo.png");
+}
+
+.caballo-azul{
+     background-image: url("./images/images-fondo/caballo-azul.png");
+}
+
+.caballo-blanco{
+     background-image: url("./images/images-fondo/caballo-blanco.png");
+}
+
+.caballo-rojo{
+     background-image: url("./images/images-fondo/caballo-rojo.png");
+}

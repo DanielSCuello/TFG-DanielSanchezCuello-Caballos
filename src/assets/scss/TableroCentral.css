@@ -1,0 +1,86 @@
+.contenedor {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.caseta {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-image: url("./images/images-fondo/caseta-1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+/* ✅ AHORA TABLERO ES UN CONTENEDOR DE FILAS */
+.tablero-central {
+  position: absolute;
+  z-index: 1;
+  top: 25%;
+  left: 15%;
+  width: 67%;
+  height: 47%;
+
+  background-color: green;
+
+  display: flex;
+  flex-direction: column; /* ✅ filas una debajo de otra */
+
+  padding-top: 4%;
+  padding-right: 0.5%;
+  padding-bottom: 0.5%;
+  padding-left: 0.5%;
+  box-sizing: border-box;
+
+  gap: 0.4%;
+}
+
+/* ✅ CADA FILA OCUPA TODO EL ANCHO */
+.fila {
+  width: 100%;
+  flex: 1;                 /* 5 filas de igual altura */
+  display: grid;
+  grid-template-columns: repeat(10, 1fr); /* ✅ 10 columnas dentro de la fila */
+  gap: 0.4%;
+}
+
+.fila-final {
+  margin-top: 1%;     /* separación respecto a las otras filas */
+}
+
+/* Opcional: fondo distinto */
+.fila-final {
+  background-color: rgba(0,0,0,0.2);
+}
+
+/* Opcional: más alta */
+.fila-final {
+  flex: 1.2;
+}
+
+
+/* CELDAS */
+.celda {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+}
+
+/* SOLO ÚLTIMA FILA */
+.celda-ultima-fila {
+  background-image: url("./images/images-fondo/luz.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+

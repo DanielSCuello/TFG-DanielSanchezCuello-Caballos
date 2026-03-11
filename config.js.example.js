@@ -6,11 +6,8 @@ export let ESCAPP_APP_SETTINGS = {
   actionAfterSolve: "NONE", //actionAfterSolve can be "NONE" or "SHOW_MESSAGE".
   //message: "Custom message",
 
-  //Number of wires
-  numberOfWires: 5,
-  //solutionLength: 5,
-
-  timer: "TRUE",
+  columns: 10,
+  numberOfHorses: 4,
 
   //Settings that will be automatically specified by the Escapp server
   //solutionLength: 4, // If solutionLength is not specified, it will automatically be set to numberOfWires.

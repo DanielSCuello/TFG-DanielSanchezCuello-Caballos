@@ -1,18 +1,38 @@
 .botonera {
   position: absolute;
   z-index: 9999;
-  width: 30%;
-  height: 10%;
-  bottom: 2%;
   left: 50%;
-  transform: translateX(-50%); /* solo centra horizontal */
+  bottom: 5%;
+  transform: translateX(-50%);
   display: flex;
-  pointer-events: auto
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
+
+  /* que el contenedor no dependa de % */
+  height: 8%;
+  width: 90%;
+  
+
+  /* separación estable */
+  gap: 4vw;
+
+  background-color: darkgrey;
+  background-image:  url("./images/images-fondo/botonera.png");
+  background-size: cover;
+  background-position: center;
+
+  padding: 1.5vh 3vw;
 }
 
 .btn-caballo {
-  width: 30%;
-  height: 70%;
+  /* tamaño estable + circular */
+  width: 8%;
+  aspect-ratio: 1 / 1; /* siempre círculo */
+  height: auto;
+
+
+  flex: 0 0 auto; /* evita que flex los estire */
   z-index: 3;
   border: none;
   cursor: pointer;
@@ -20,6 +40,9 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-color: transparent;
+
+  /* por si son <div> clicables */
+  display: inline-block;
 }
 
 /* === BASE VISUAL DEL BOTÓN === */
@@ -28,12 +51,12 @@
 .boton-rojo,
 .boton-blanco {
   border-radius: 50%;
-  border: 3px solid black;
+  border: 1px solid black;
   box-shadow:
     inset -6px -6px 12px rgba(0,0,0,0.3),
     inset 6px 6px 12px rgba(255,255,255,0.4),
     0 6px 10px rgba(0,0,0,0.4);
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* === COLORES === */
@@ -53,15 +76,44 @@
   background: radial-gradient(circle at 30% 30%, #ffffff, #cfcfcf);
 }
 
-
 /* === ACTIVE (se hunde) === */
 .boton-amarillo:active,
 .boton-azul:active,
 .boton-rojo:active,
 .boton-blanco:active {
   transform: scale(0.95);
-  box-shadow:
-    inset 4px 4px 10px rgba(0,0,0,0.5);
+  box-shadow: inset 4px 4px 10px rgba(0,0,0,0.5);
 }
 
+.btn-reset {
+  width: 8%;
+  aspect-ratio: 1 / 1;  
+  transform: translateY(-15%); 
+  height: auto;
+
+  flex: 0 0 auto;
+
+  background-image: url("./images/images-fondo/palanca-arriba.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  cursor: pointer;
+}
+
+.btn-reset-abajo {
+  width: 8%;
+  aspect-ratio: 1 / 1;   
+  transform: translateY(28%); 
+  height: auto;
+
+  flex: 0 0 auto;
+
+  background-image: url("./images/images-fondo/palanca-abajo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  cursor: pointer;
+}
 

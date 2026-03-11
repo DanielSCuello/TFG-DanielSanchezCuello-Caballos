@@ -25,3 +25,32 @@
 .caballo-rojo{
      background-image: url("./images/images-fondo/caballo-rojo.png");
 }
+
+.animar-avance {
+  animation: caballo-avance 280ms ease-in-out forwards;
+  will-change: transform;
+}
+
+.animar-retroceso {
+  animation: caballo-retroceso 280ms ease-in-out forwards;
+  will-change: transform;
+}
+
+@keyframes caballo-avance {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+
+  50% {
+    transform: translateX(55%) translateY(-10%);
+  }
+
+  100% {
+    transform: translateX(110%) translateY(0);
+  }
+}
+
+@keyframes caballo-retroceso {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-110%); }
+}

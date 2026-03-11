@@ -21,7 +21,6 @@
   pointer-events: none;
 }
 
-/* ✅ AHORA TABLERO ES UN CONTENEDOR DE FILAS */
 .tablero-central {
   position: absolute;
   z-index: 1;
@@ -33,7 +32,7 @@
   background-color: green;
 
   display: flex;
-  flex-direction: column; /* ✅ filas una debajo de otra */
+  flex-direction: column; 
 
   padding-top: 4%;
   padding-right: 0.5%;
@@ -44,43 +43,69 @@
   gap: 0.4%;
 }
 
-/* ✅ CADA FILA OCUPA TODO EL ANCHO */
+
 .fila {
   width: 100%;
-  flex: 1;                 /* 5 filas de igual altura */
+  flex: 1;                 
   display: grid;
-  grid-template-columns: repeat(10, 1fr); /* ✅ 10 columnas dentro de la fila */
+  grid-template-columns: repeat(var(--columnas), 1fr);
   gap: 0.4%;
+
+  position: relative;
 }
 
 .fila-final {
-  margin-top: 1%;     /* separación respecto a las otras filas */
+  margin-top: 1%;  
+  border-bottom: none;   
 }
 
-/* Opcional: fondo distinto */
+.fila::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0%;
+  width: 100%;
+  height: 15%;
+  background: linear-gradient(
+    to bottom,
+    yellow 2px,
+    yellow 8px
+  );
+}
+
 .fila-final {
   background-color: rgba(0,0,0,0.2);
 }
 
-/* Opcional: más alta */
+
 .fila-final {
   flex: 1.2;
 }
 
+.fila-final::after {
+  display: none;
+}
 
-/* CELDAS */
+
+
 .celda {
   width: 100%;
   height: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
 }
 
-/* SOLO ÚLTIMA FILA */
 .celda-ultima-fila {
   background-image: url("./images/images-fondo/luz.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: arial black;
+  font-size: 2vw;
 }
+
 

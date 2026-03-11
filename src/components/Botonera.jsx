@@ -1,35 +1,42 @@
-import { useState ,useContext } from "react";
+import { useState, useContext } from "react";
 import { GlobalContext } from "./GlobalContext.jsx";
-import './../assets/scss/Botonera.css';
+import "./../assets/scss/Botonera.css";
 
-function Botonera({ posiciones, setPosiciones, meta, filasConCaballo }) {
+function Botonera({ onMoveRequest, onReset, filasConCaballo , animandoReset}) {
 
   const caballos = [
     "boton-rojo",
     "boton-azul",
     "boton-amarillo",
-    "boton-blanco",
+    "boton-blanco"
   ];
 
   const moverCaballo = (filaIndex) => {
-    console.log("hola hola hola");
-    setPosiciones((prev) => {
-      const next = [...prev];
-      next[filaIndex] = Math.min(next[filaIndex] + 1, meta);
-      return next;
-    });
+    if (typeof onMoveRequest === "function") {
+      onMoveRequest(filaIndex);
+    }
   };
+
+  const mitad = Math.floor(filasConCaballo / 2);
 
   return (
     <div className="botonera">
+
       {Array.from({ length: filasConCaballo }).map((_, filaIndex) => {
 
         const claseCaballo = caballos[filaIndex % caballos.length];
 
         return (
-          <div className={`btn-caballo ${claseCaballo}`}  onClick={() => moverCaballo(filaIndex)}  type="button"/>
+          <>
+            {filaIndex === mitad && (
+              <div  key="reset" className={animandoReset ? 'btn-reset-abajo':'btn-reset'}  onClick={() => typeof onReset === "function" && onReset()}></div>
+            )}
+
+            <div key={filaIndex} className={`btn-caballo ${claseCaballo}`} onClick={() => moverCaballo(filaIndex)} />
+          </>
         );
       })}
+
     </div>
   );
 }

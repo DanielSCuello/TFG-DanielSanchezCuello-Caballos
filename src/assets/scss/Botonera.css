@@ -1,6 +1,6 @@
 .botonera {
   position: absolute;
-  z-index: 9999;
+  z-index: 5;
   left: 50%;
   bottom: 5%;
   transform: translateX(-50%);
@@ -9,12 +9,12 @@
   align-items: center;
   pointer-events: auto;
 
-  /* que el contenedor no dependa de % */
-  height: 8%;
-  width: 90%;
+  
+  height: 10%;
+  width: 100%;
   
 
-  /* separación estable */
+  
   gap: 4vw;
 
   background-color: darkgrey;
@@ -22,17 +22,17 @@
   background-size: cover;
   background-position: center;
 
-  padding: 1.5vh 3vw;
+
 }
 
 .btn-caballo {
-  /* tamaño estable + circular */
-  width: 8%;
-  aspect-ratio: 1 / 1; /* siempre círculo */
+  
+  width: 6%;
+  aspect-ratio: 1 / 1; 
   height: auto;
 
 
-  flex: 0 0 auto; /* evita que flex los estire */
+  flex: 0 0 auto; 
   z-index: 3;
   border: none;
   cursor: pointer;
@@ -41,11 +41,11 @@
   background-size: contain;
   background-color: transparent;
 
-  /* por si son <div> clicables */
+  
   display: inline-block;
 }
 
-/* === BASE VISUAL DEL BOTÓN === */
+
 .boton-amarillo,
 .boton-azul,
 .boton-rojo,
@@ -59,7 +59,7 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* === COLORES === */
+
 .boton-rojo {
   background: radial-gradient(circle at 30% 30%, #ff6b6b, #c40000);
 }
@@ -76,7 +76,7 @@
   background: radial-gradient(circle at 30% 30%, #ffffff, #cfcfcf);
 }
 
-/* === ACTIVE (se hunde) === */
+
 .boton-amarillo:active,
 .boton-azul:active,
 .boton-rojo:active,

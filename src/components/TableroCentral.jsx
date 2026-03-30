@@ -4,11 +4,12 @@ import { GlobalContext } from "./GlobalContext.jsx";
 import "./../assets/scss/TableroCentral.css";
 import Caballo from "./Caballo.jsx";
 import Botonera from "./Botonera.jsx";
+import Luces from "./Luces.jsx";
 
 function TableroCentral() {
   const { escapp,appSettings, Utils } = useContext(GlobalContext);
 
-  const columnas =appSettings.columns;
+  const columnas = Math.min(appSettings.columns, 10);
   const filas = 5;
 
   const filasConCaballo = appSettings.numberOfHorses;
@@ -19,6 +20,8 @@ function TableroCentral() {
     Array.from({ length: filasConCaballo }, () => 0)
   );
 
+  const [fallado,setFallado] = useState(false);
+  const [resuelto,setResuelto] = useState(false);
   const [solucion, setSolucion] = useState("");
 
   const [filaAnimando, setFilaAnimando] = useState(null);
@@ -59,13 +62,25 @@ function TableroCentral() {
       Utils.log("Check solution Escapp response", success, erState);
       try {
         setTimeout(() => {
-          changeBoxLight(success);
+          changeLight(success);
         }, 100);
       } catch(e){
         Utils.log("Error in checkNextPuzzle",e);
       }
     });
   };
+
+  const changeLight = (success) =>{
+    if(success){
+       setResuelto(true);
+       onKeypadSolved();
+       audio = document.getElementById("bomba_desactivada");
+    }
+    else{
+      setFallado(true);
+      audio = document.getElementById("solution_nok");
+    }
+  }
 
   const onMoveRequest = (filaIndex) => {
     if (animandoReset) return;          
@@ -103,6 +118,8 @@ function TableroCentral() {
 
         if (nextQ.length === 0) {
           setAnimandoReset(false);
+          setFallado(false);
+          setResuelto(false);
           setFilaAnimando(null);
           return [];
         }
@@ -158,7 +175,8 @@ function TableroCentral() {
       </div>
 
       <div className="caseta"></div>
-
+      <Luces resuelto={resuelto} fallado={fallado}/>
+      
       <Botonera filasConCaballo={filasConCaballo} onMoveRequest={onMoveRequest} onReset={resetCaballos} animandoReset={animandoReset}/>
     </div>
   );

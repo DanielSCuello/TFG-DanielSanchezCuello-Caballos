@@ -1,0 +1,33 @@
+.luces-background {
+  position: absolute;
+  left: 0;
+  top: 81%;
+  width: 100%;
+  height: 3%;
+ 
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(8, 129, 210);
+
+  z-index: 4;
+}
+
+/* luz base */
+.luces {
+  width: 2%;
+  height: 80%;
+  border-radius: 50%;
+  background-color: gray;
+}
+
+/* estado fallado */
+.luces-fallado {
+  background-color: red;
+}
+
+/* estado resuelto */
+.luces-resuelto {
+  background-color: limegreen;
+}

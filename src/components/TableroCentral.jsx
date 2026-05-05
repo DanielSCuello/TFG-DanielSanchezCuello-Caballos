@@ -71,15 +71,17 @@ function TableroCentral() {
   };
 
   const changeLight = (success) =>{
+    let audio;
     if(success){
        setResuelto(true);
        onKeypadSolved();
-       audio = document.getElementById("bomba_desactivada");
+       audio = document.getElementById("Claxon_Feria");
     }
     else{
       setFallado(true);
       audio = document.getElementById("solution_nok");
     }
+    audio.play();
   }
 
   const onMoveRequest = (filaIndex) => {

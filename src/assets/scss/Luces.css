@@ -14,7 +14,6 @@
   z-index: 4;
 }
 
-/* luz base */
 .luces {
   width: 2%;
   height: 80%;
@@ -22,12 +21,15 @@
   background-color: gray;
 }
 
-/* estado fallado */
 .luces-fallado {
   background-color: red;
 }
 
-/* estado resuelto */
 .luces-resuelto {
-  background-color: limegreen;
+  animation: cambiarColores 2s infinite linear;
+}
+
+@keyframes cambiarColores {
+  10%  { background-color: limegreen; }
+  40%  { background-color: rgb(155, 245, 125); }
 }
